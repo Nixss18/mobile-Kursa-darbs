@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_account"/>
+    <item
+        android:id="@+id/recycle"
+        android:title="Recycle"
+        android:icon="@drawable/ic_recycle"/>
+    <item
+        android:id="@+id/gift"
+        android:title="Gift Shop"
+        android:icon="@drawable/ic_gift_shop"/>
+    <item
+        android:id="@+id/history"
+        android:title="Earnings"
+        android:icon="@drawable/ic_history"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Exit"
+        android:icon="@drawable/ic_logout"/>
+</menu>
