@@ -13,7 +13,15 @@
         android:text="@string/name_recycle"
         android:textSize="50sp"
         android:textStyle="bold"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/scanner_view"/>
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:autoFocusButtonVisible="true"
+        app:flashButtonVisible="true" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

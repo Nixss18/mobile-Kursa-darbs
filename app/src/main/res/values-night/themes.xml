@@ -14,5 +14,8 @@
         <!-- Customize your theme here. -->
         <item name="android:textColor">@color/white</item>
         <item name="android:colorBackground">@color/grey</item>
+        <item name="maskColor">@color/grey</item>
+        <item name="flashButtonColor">@color/white</item>
+        <item name="autoFocusButtonColor">@color/white</item>
     </style>
 </resources>
