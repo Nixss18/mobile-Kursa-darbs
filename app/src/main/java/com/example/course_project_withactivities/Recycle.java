@@ -6,12 +6,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
@@ -28,11 +31,14 @@ public class Recycle extends AppCompatActivity {
     private CodeScanner cScanner;
     private boolean qrScanned;
     private int CameraRequestCode = 69;
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String SAVED_POINTS = "savedPoints";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle);
         //navigation view
+        hideBtn();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.recycle);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -102,15 +108,38 @@ public class Recycle extends AppCompatActivity {
         if(qrScanned){
             recycledBottles = new Random().nextInt((maxBottles - minBottles) + 1) + minBottles;
             Toast.makeText(this, "You recycled " + recycledBottles + " bottles!", Toast.LENGTH_SHORT).show();
-            //peec shi butu japieskaita lietotaja kopejam pktu skaitam db
+            //hides scanner and adds/saves points to the user
             CodeScannerView scanView = findViewById(R.id.scanner_view);
             scanView.setVisibility(View.GONE);
+            savePoints(recycledBottles);
+            showBtn();
             qrScanned = false;
         }else{
             Toast.makeText(this, "Nothing",Toast.LENGTH_SHORT).show();
         }
     }
-
+    public void savePoints(int recBottles){
+        SharedPreferences preference = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        int userPoints = preference.getInt(SAVED_POINTS,0);
+        userPoints += recBottles;
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putInt(SAVED_POINTS,userPoints);
+        editor.apply();
+        Toast.makeText(this, "Your total points now: " + userPoints, Toast.LENGTH_SHORT).show();
+    }
+    private void hideBtn(){
+        Button btnRescan = findViewById(R.id.btnRec_again);
+        btnRescan.setVisibility(View.INVISIBLE);
+    }
+    private void showBtn(){
+        Button btnRescan = findViewById(R.id.btnRec_again);
+        btnRescan.setVisibility(View.VISIBLE);
+    }
+    public void onClick(View v){
+        CodeScannerView scanView = findViewById(R.id.scanner_view);
+        scanView.setVisibility(View.VISIBLE);
+        hideBtn();
+    }
     @Override
     protected void onResume() {
         super.onResume();

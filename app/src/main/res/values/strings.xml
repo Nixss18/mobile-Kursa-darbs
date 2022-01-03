@@ -5,9 +5,4 @@
     <string name="name_recycle">Recycle</string>
     <string name="name_gift_shop">Gifts</string>
     <string name="name_history">History</string>
-    <string name="humanName">Jānis Bērziņš</string>
-    <string name="email">janis.berzins@va.lv</string>
-    <string name="phone_number">+371 27560923</string>
-    <string name="points">Points</string>
-
 </resources>
