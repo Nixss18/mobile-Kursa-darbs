@@ -26,6 +26,7 @@ public class GiftHistory extends AppCompatActivity {
     String name;
     String points;
     ListView lw;
+    String test; //sis nevajadzigs
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
