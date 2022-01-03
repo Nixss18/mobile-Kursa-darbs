@@ -3,19 +3,24 @@ package com.example.course_project_withactivities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-
+    private int userPoints;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        displayPoints();
         //navigation view
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
@@ -41,5 +46,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+    private void displayPoints(){
+        SharedPreferences preference = getSharedPreferences(Recycle.SHARED_PREFS, Context.MODE_PRIVATE);
+        userPoints = preference.getInt(Recycle.SAVED_POINTS, 0);
+        TextView txtPoints = findViewById(R.id.total_points);
+        String totPoints = getString(R.string.points,userPoints);
+        txtPoints.setText(totPoints);
     }
 }

@@ -33,6 +33,7 @@ public class Recycle extends AppCompatActivity {
     private int CameraRequestCode = 69;
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String SAVED_POINTS = "savedPoints";
+    private final int pointsPerBottle = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,9 +102,9 @@ public class Recycle extends AppCompatActivity {
         });
     }
     public void recycleBottles(){
-        int minBottles = 15;
-        int maxBottles = 150;
-        int recycledBottles = 0;
+        int minBottles = 3;
+        int maxBottles = 99;
+        int recycledBottles;
         //formula: int random = new Random().nextInt((max - min) + 1) + min;
         if(qrScanned){
             recycledBottles = new Random().nextInt((maxBottles - minBottles) + 1) + minBottles;
@@ -119,6 +120,7 @@ public class Recycle extends AppCompatActivity {
         }
     }
     public void savePoints(int recBottles){
+        recBottles *= pointsPerBottle;
         SharedPreferences preference = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         int userPoints = preference.getInt(SAVED_POINTS,0);
         userPoints += recBottles;
