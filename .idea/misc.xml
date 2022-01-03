@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/llinc/AndroidStudioProjects/mobile-Kursa-darbs/app/src/main/res/layout/activity_main.xml" value="0.2803442028985507" />
+        <entry key="..\:/Users/llinc/AndroidStudioProjects/mobile-Kursa-darbs/app/src/main/res/layout/activity_profile.xml" value="0.2803442028985507" />
+        <entry key="..\:/Users/llinc/AndroidStudioProjects/mobile-Kursa-darbs/app/src/main/res/layout/buttons.xml" value="0.1" />
+        <entry key="..\:/Users/llinc/AndroidStudioProjects/mobile-Kursa-darbs/app/src/main/res/layout/gradient.xml" value="0.1" />
         <entry key="..\:/Users/raivi/AndroidStudioProjects/Course_Project_WithActivities/app/src/main/res/drawable/selector.xml" value="0.2703125" />
         <entry key="..\:/Users/raivi/AndroidStudioProjects/Course_Project_WithActivities/app/src/main/res/layout/activity_gift_history.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/raivi/AndroidStudioProjects/Course_Project_WithActivities/app/src/main/res/layout/activity_gift_shop.xml" value="0.25416666666666665" />
