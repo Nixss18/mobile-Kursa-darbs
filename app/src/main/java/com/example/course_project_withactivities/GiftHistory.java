@@ -10,35 +10,51 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class GiftHistory extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME = "userGiftChoice";
     private static final String KEY_NAME = "name";
-    private static final String KEY_POINTS = "image";
+    private static final String KEY_POINTS = "points";
+    private static final String KEY_IMAGE = "image";
     ArrayList<String> productList = new ArrayList<String>();
     String name;
     String points;
-    ListView lw;
+    int imgId;
     String test; //sis nevajadzigs
+    TextView prName, prPaid;
+    CircleImageView viewImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift_history);
+        prName = findViewById(R.id.name_product);
+        prPaid = findViewById(R.id.paidForProduct);
+        viewImage = findViewById(R.id.productImage);
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
-        lw = (ListView) findViewById(R.id.listviewHistory);
         name = sharedPreferences.getString(KEY_NAME, null);
         points = sharedPreferences.getString(KEY_POINTS,null);
-        productList.add(name);
-        for(int i =0; i < productList.size();i++){
-            Log.d("list", name);
+        imgId = sharedPreferences.getInt(KEY_IMAGE, -1);
+        if(name !=null || points !=null || imgId !=-1){
+            prName.setText(name);
+            prPaid.setText(points);
+            viewImage.setImageResource(imgId);
+        }
+
+        else{
+            prName.setText("Nav pasūtītu produktu");
+            prPaid.setText("Nav pasūtītu produktu");
+            viewImage.setImageResource(R.drawable.gift);
         }
 
         //navigation view

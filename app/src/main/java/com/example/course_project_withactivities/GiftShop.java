@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,13 +25,21 @@ public class GiftShop extends AppCompatActivity {
 
     String productList[] = {"Apollo Kino", "Euronics dāvanu karte", "bilesu serviss davanu karte"};
     int[] productImage = {R.drawable.kino,R.drawable.euronics,R.drawable.bilesuserviss};
-    String[] points = {"3000", "5000", "5000"};
+    String[] points = {"100", "5000", "5000"};
     ListView listView;
     ArrayList productArray = new ArrayList<>();
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, userPointsAfterBuy;
     private static final String SHARED_PREF_NAME = "userGiftChoice";
     private static final String KEY_NAME = "name";
     private static final String KEY_POINTS = "points";
+    private static final String KEY_IMAGE = "image";
+    public static final String SAVED_POINTS = "savedPoints";
+    public static final String SHARED_PREFS = "sharedPrefs";
+    int userPoints;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,8 @@ public class GiftShop extends AppCompatActivity {
         setContentView(R.layout.activity_gift_shop);
         listView = (ListView) findViewById(R.id.listview);
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+        userPointsAfterBuy = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), productList,productImage,points);
         listView.setAdapter(customBaseAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,12 +61,28 @@ public class GiftShop extends AppCompatActivity {
                         "Pasūtīt",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //te nāk pārbaudes
-                                Toast.makeText(GiftShop.this, "Jūsu izvēlētā prece ir pasūtīta "+ position, Toast.LENGTH_SHORT).show();
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString(KEY_NAME, productList[position]);
-                                editor.putString(KEY_POINTS, points[position]);
-                                editor.apply();
+                                SharedPreferences preference = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+                                userPoints = preference.getInt(SAVED_POINTS,0);
+                                int getPoints = Integer.parseInt(points[position]);
+                                if(getPoints > userPoints){
+                                    Toast.makeText(GiftShop.this, "You don't have enough points. You have " + userPoints + " points", Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    userPoints = userPoints - getPoints;
+                                    Toast.makeText(GiftShop.this, "Jūsu izvēlētā prece ir pasūtīta ", Toast.LENGTH_SHORT).show();
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString(KEY_NAME, productList[position]);
+                                    editor.putString(KEY_POINTS, points[position]);
+                                    editor.putInt(KEY_IMAGE, productImage[position]);
+                                    editor.apply();
+
+                                    SharedPreferences.Editor editorPoints = userPointsAfterBuy.edit();
+                                    editorPoints.putInt(SAVED_POINTS, userPoints);
+                                    editorPoints.apply();
+                                    Toast.makeText(GiftShop.this, "Your total points now: " + userPoints, Toast.LENGTH_SHORT).show();
+
+                                }
+
                             }
                         });
 
@@ -99,5 +126,7 @@ public class GiftShop extends AppCompatActivity {
                 return false;
             }
         });
+
+
     }
 }
