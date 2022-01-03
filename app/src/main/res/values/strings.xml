@@ -5,8 +5,11 @@
     <string name="name_recycle">Recycle</string>
     <string name="name_gift_shop">Gifts</string>
     <string name="name_history">History</string>
-    <string name="humanName">Jānis Bērziņš</string>
-    <string name="email">janis.berzins@va.lv</string>
-    <string name="phone_number">+371 29047493</string>
+    <string name="person_name">Harry Potter</string>
+    <string name="email">harry.potter@gmail.com</string>
+    <string name="phone_number">+371 00000000</string>
     <string name="points">Points</string>
+    <string name="rec_desc">1 Bottle = 1 Point \n Point your camera at a QR code! \n It will scan automatically \n Points are converted automatically</string>
+    <string name="rec_inf">Find a QR code to start!</string>
+    <string name="btn_reset">Scan again</string>
 </resources>

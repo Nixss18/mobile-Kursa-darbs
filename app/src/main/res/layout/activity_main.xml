@@ -9,27 +9,28 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="350dp">
+
         <LinearLayout
-            android:background="@drawable/gradient"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:orientation="vertical">
+            <!--android:background="@drawable/gradient"-->
             <ImageView
-                android:layout_marginTop="105dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/profile_picture"/>
-            <TextView
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="105dp"
+                android:src="@drawable/profile_picture" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/humanName"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="22sp"/>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/person_name"
+                android:textSize="22sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </RelativeLayout>
@@ -38,34 +39,34 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="25dp">
         <LinearLayout
             android:orientation="horizontal"
-            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/mail"/>
+                android:src="@drawable/ic__email" />
             <TextView
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
                 android:text="@string/email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
             android:orientation="horizontal"
-            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/phone"/>
+                android:src="@drawable/ic_phone"/>
             <TextView
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
@@ -83,8 +84,9 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/points"/>
+                android:src="@drawable/ic_points"/>
             <TextView
+                android:id="@+id/total_points"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
@@ -94,9 +96,6 @@
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <com.google.android.material.bottomnavigation.BottomNavigationView
