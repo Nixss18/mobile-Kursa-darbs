@@ -8,13 +8,15 @@
     tools:context=".Recycle">
 
     <TextView
+        android:id="@+id/txtRec_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name_recycle"
-        android:textSize="50sp"
+        android:text="@string/rec_inf"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:layout_centerInParent="true"
         android:layout_below="@+id/scanner_view"/>
+
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"
         android:layout_width="match_parent"
@@ -32,5 +34,25 @@
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu_navigation"
         android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/txtRec_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rec_desc"
+        android:textSize="20sp"
+        android:layout_below="@+id/txtRec_title"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/btnRec_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtRec_description"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:onClick="onClick"
+        android:text="@string/btn_reset"/>
 
 </RelativeLayout>
