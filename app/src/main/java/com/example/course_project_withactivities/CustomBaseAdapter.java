@@ -54,7 +54,7 @@ public class CustomBaseAdapter extends BaseAdapter {
         points = pointList[position];
         image = listImages[position];
         txtView.setText(productList[position]);
-        txtViewPoints.setText(pointList[position] + " punkti");
+        txtViewPoints.setText(pointList[position] + " points");
         productImage.setImageResource(listImages[position]);
         return convertView;
     }

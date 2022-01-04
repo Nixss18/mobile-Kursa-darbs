@@ -23,9 +23,9 @@ import java.util.ArrayList;
 
 public class GiftShop extends AppCompatActivity {
 
-    String productList[] = {"Apollo Kino", "Euronics dāvanu karte", "bilesu serviss davanu karte"};
-    int[] productImage = {R.drawable.kino,R.drawable.euronics,R.drawable.bilesuserviss};
-    String[] points = {"100", "5000", "5000"};
+    String productList[] = {"Apollo Kino tickets (2 tickets)", "Euronics gift card (20 EUR)", "Biļešu serviss gift card (20 EUR)", "220.lv gift card (20 EUR)", "Sportland gift card (25EUR)", "Virši DUS gift card (30 EUR)"};
+    int[] productImage = {R.drawable.kino,R.drawable.euronics,R.drawable.bilesuserviss ,R.drawable.divsimtdivdesmit,R.drawable.sportland_,R.drawable.virsidavanukarte};
+    String[] points = {"100", "200", "300", "300", "400", "500"};
     ListView listView;
     ArrayList productArray = new ArrayList<>();
     SharedPreferences sharedPreferences, userPointsAfterBuy;
@@ -55,10 +55,10 @@ public class GiftShop extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(GiftShop.this);
-                builder1.setMessage("Vai vēlaties pasūtīt šo preci?");
+                builder1.setMessage("Do you want to order this product?");
                 builder1.setCancelable(true);
                 builder1.setPositiveButton(
-                        "Pasūtīt",
+                        "Order",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 SharedPreferences preference = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
@@ -69,7 +69,7 @@ public class GiftShop extends AppCompatActivity {
                                 }
                                 else{
                                     userPoints = userPoints - getPoints;
-                                    Toast.makeText(GiftShop.this, "Jūsu izvēlētā prece ir pasūtīta ", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(GiftShop.this, "Your chosen product has been ordered", Toast.LENGTH_SHORT).show();
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString(KEY_NAME, productList[position]);
                                     editor.putString(KEY_POINTS, points[position]);
@@ -89,7 +89,7 @@ public class GiftShop extends AppCompatActivity {
 
 
                 builder1.setNegativeButton(
-                        "Atcelt",
+                        "Cancel",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();

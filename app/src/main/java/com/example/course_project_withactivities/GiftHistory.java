@@ -52,8 +52,8 @@ public class GiftHistory extends AppCompatActivity {
         }
 
         else{
-            prName.setText("Nav pasūtītu produktu");
-            prPaid.setText("Nav pasūtītu produktu");
+            prName.setText("No Product ordered");
+            prPaid.setText("No Product ordered");
             viewImage.setImageResource(R.drawable.gift);
         }
 
