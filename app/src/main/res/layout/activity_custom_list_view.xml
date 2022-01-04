@@ -18,14 +18,16 @@
         android:gravity="center"
         android:text="Text"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/neutral_grey"/>
 
     <TextView
         android:id="@+id/productPoints"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="punkti" />
+        android:text="punkti"
+        android:textColor="@color/neutral_grey"/>
 
 
 </LinearLayout>

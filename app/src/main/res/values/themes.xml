@@ -17,5 +17,6 @@
         <item name="maskColor">@color/green_light</item>
         <item name="flashButtonColor">@color/black</item>
         <item name="autoFocusButtonColor">@color/black</item>
+        <item name="civ_border_color">@color/black</item>
     </style>
 </resources>

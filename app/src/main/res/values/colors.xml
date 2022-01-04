@@ -17,7 +17,7 @@
     <color name="green">#1B5E20</color>
     <!--secondary-->
     <color name="green_light">#A5D6A7</color>
-
+    <color name="neutral_grey">#9A9A9A</color>
     <!--dark mode colors-->
     <!--primary-->
     <color name="green_dark">#003300</color>

@@ -16,7 +16,6 @@
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu_navigation"
         android:layout_alignParentBottom="true"/>
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/productImage"
         android:layout_width="250dp"
@@ -24,7 +23,6 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/gift"
         app:civ_border_width="2dp"
-        app:civ_border_color="#FF000000"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -63,7 +61,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/black"
                 android:textSize="36sp" />
 
         </LinearLayout>
@@ -94,8 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textSize="36sp"
-                android:textColor="@color/black"/>
+                android:textSize="36sp" />
 
         </LinearLayout>
 
